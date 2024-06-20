@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop',
     'cart',
-    'orders.apps.OrdersConfig',
-    'payment.apps.PaymentConfig',
+    'orders',
+    'payments',
 ]
 
 MIDDLEWARE = [
@@ -115,9 +115,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
+STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -133,8 +134,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 CELERY_BROKER_URL = 'amqp://localhost'  # Example for RabbitMQ
 CELERY_RESULT_BACKEND = 'rpc://'
 
-
-
-STRIPE_PUBLISHABLE_KEY = 'pk_test_51PSymr1aMR364tURlknlT2AX023lcOJCw7J5eJi6R0lGoeR6llML9PqAkASJCSyIT3SgGMR9vORJJxKXEr3sXaXc0031zo878E' #
-STRIPE_SECRET_KEY = 'sk_test_51PSymr1aMR364tURmP9JM6WeErxBJmJGrVEk6io61Y0WduL2LkX8Q9syWlSgfUpiOO2J8vTN6czg6dfC8VnazLGx00D1CqcflK' # Secret key
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51PSymr1aMR364tURlknlT2AX023lcOJCw7J5eJi6R0lGoeR6llML9PqAkASJCSyIT3SgGMR9vORJJxKXEr3sXaXc0031zo878E'  #
+STRIPE_SECRET_KEY = 'sk_test_51PSymr1aMR364tURmP9JM6WeErxBJmJGrVEk6io61Y0WduL2LkX8Q9syWlSgfUpiOO2J8vTN6czg6dfC8VnazLGx00D1CqcflK'  # Secret key
 STRIPE_API_VERSION = '2022-08-01'
+
+STRIPE_WEBHOOK_SECRET = 'whsec_5c7f2ca7c0d12d104568ff68880774495b57714690c8a8baf8201522771f5354'
