@@ -61,9 +61,4 @@ def admin_order_pdf(request, order_id):
 
 
 
-def get_order(request):
-    order_id = request.session.get('order_id')
-    if order_id:
-        order = Order.objects.get(id=order_id)
-        return order
-    return None
+
