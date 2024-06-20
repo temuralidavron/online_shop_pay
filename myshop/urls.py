@@ -3,10 +3,13 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from payments import webhooks
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cart/', include('cart.urls', namespace='cart')),
     path('orders/', include('orders.urls', namespace='orders')),
+    path('payment/', include('payments.urls', namespace='payment')),
+    path('webhook/', webhooks.stripe_webhook, name='stripe-webhook'),
     path('', include('shop.urls', namespace='shop')),
 
 ]
